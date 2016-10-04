@@ -1,5 +1,7 @@
-Lemmings, a microservices sample project
+Lemmings, a microservices sample project 
 ========================================
+
+[![Build Status](https://travis-ci.org/jomoespe/lemmings.svg?branch=master)](https://travis-ci.org/jomoespe/lemmings)
 
 The lemmings, as the microservices, are things with a small responsability that do one thing but do it well, and work together quite well.
 
