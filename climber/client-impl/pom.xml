@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+   
+    <groupId>com.josemorenoesteban.lemmings.climber</groupId>
+    <artifactId>client-impl</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    
+    <name>Cliember client impl</name>
+    <packaging>jar</packaging>
+    <description>
+        Climber client impl
+    </description>    
+    <url>https://github.com/jomoespe/lemmings</url>
+    <inceptionYear>2016</inceptionYear>
+    <developers>
+        <developer>
+            <name>Jose Moreno</name>
+            <url>https://jomoespe.github.io</url>
+        </developer>
+    </developers>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.josemorenoesteban.lemmings.climber</groupId>
+            <artifactId>client</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.json</groupId>
+            <artifactId>javax.json-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>2.23.2</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.json</artifactId>
+            <version>1.0.4</version>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
+</project>
