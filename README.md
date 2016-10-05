@@ -1,7 +1,9 @@
-Lemmings, a microservices sample project
+Lemmings, a microservices sample project 
 ========================================
 
-The lemmings, as the microservices, are things with a small responsability that do one thing but do it well, and work together quite well.
+[![Build Status](https://travis-ci.org/jomoespe/lemmings.svg?branch=master)](https://travis-ci.org/jomoespe/lemmings)
+
+The lemmings, like the microservices, are things with a small responsability that do one thing but do it well, and work together quite well.
 
 The lemmings types are: Climber, Floater, Bomber, Blocker, Builder, Basher, Miner and Digger (from http://lemmings.wikia.com/wiki/Lemmings)
 
