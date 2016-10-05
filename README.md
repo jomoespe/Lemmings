@@ -11,9 +11,9 @@ The lemmings types are: Climber, Floater, Bomber, Blocker, Builder, Basher, Mine
 TODO
 ----
 
-[] JS client in *climber*
-[] Java client in *basher*
-[] Hystrix in client application
+[ ] JS client in *climber*
+[ ] Java client in *basher*
+[ ] Hystrix in client application
 
 
 Climber
