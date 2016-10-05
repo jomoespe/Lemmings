@@ -12,7 +12,10 @@
 	<modules>
         <module>climber/client</module>
         <module>climber/client-impl</module>
-        <module>app</module>
         <module>climber/service</module>
+
+        <module>basher/service</module>
+
+        <module>app</module>
 	</modules>
 </project>
