@@ -14,12 +14,29 @@ First microservice. Returns a list with number names
   /v1/climber[?[q=<search_term>][&start=<position_offset>][&size=<number_of_registries>]]
 
 
-### Start the cimber microservice 
+### Start the climber microservice 
 
 In `climber/service` directory...
 
     mvn exec:java -Dexec.mainClass="com.josemorenoesteban.lemmings.climber.service.Main"
     curl http://localhost:4567/v1/climber
+
+
+Basher
+-------
+
+This microservice push data via websockets
+
+  /v1/basher
+
+### Start the climber microservice 
+
+In `climber/service` directory...
+
+    mvn exec:java -Dexec.mainClass="com.josemorenoesteban.lemmings.basher.service.Main"
+
+    firefox http://localhost:9090/
+
 
 
 The application
