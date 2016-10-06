@@ -8,6 +8,14 @@ The lemmings, like the microservices, are things with a small responsability tha
 The lemmings types are: Climber, Floater, Bomber, Blocker, Builder, Basher, Miner and Digger (from http://lemmings.wikia.com/wiki/Lemmings)
 
 
+TODO
+----
+
+[ ] JS client in *climber*
+[ ] Java client in *basher*
+[ ] Hystrix in client application
+
+
 Climber
 -------
 
