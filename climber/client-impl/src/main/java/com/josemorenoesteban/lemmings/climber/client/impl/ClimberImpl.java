@@ -68,7 +68,7 @@ public class ClimberImpl implements Climber {
     }
 
     @Override
-    public List<String> invoke() {
+    public List<String> get() {
         final InvokeCommand command = new InvokeCommand();
         return command.execute();
     }

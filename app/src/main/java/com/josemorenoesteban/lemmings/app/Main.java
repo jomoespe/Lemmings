@@ -12,7 +12,7 @@ public class Main {
             .question("t")
             .start(2)
             .size(212)
-            .invoke()
+            .get()
             .forEach( System.out::println );
     }
 }
