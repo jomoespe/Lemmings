@@ -13,7 +13,7 @@ TODO
 
 - [ ] JS client in *climber*
 - [ ] Java client in *basher*
-- [ ] Hystrix in client application
+- [X] Hystrix in client application
 
 
 Climber
