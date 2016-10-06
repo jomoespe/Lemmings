@@ -5,7 +5,7 @@ import spark.Request;
 import java.util.Objects;
 import java.util.Optional;
 
-public class Query {
+public final class Query {
     private static final String QUESTION_PARAM    = "q";
     private static final String START_PARAM       = "start";
     private static final String SIZE_PARAM        = "size";

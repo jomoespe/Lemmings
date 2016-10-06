@@ -1,13 +1,8 @@
 package com.josemorenoesteban.lemmings.app;
 
-import com.josemorenoesteban.lemmings.climber.client.v1.Climber;
-
-import java.util.List;
-
 public class Gui extends javax.swing.JFrame {
 
     public Gui() {
-        this.service         = Climber.of();
         this.searchListModel = new SearchListModel();
         initComponents();
     }
@@ -71,17 +66,11 @@ public class Gui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
-        List<String> data = service
-                .question(searchText.getText())
-                .invoke();
-        searchListModel.setData(data);
+        searchListModel.loadData( searchText.getText() );
     }//GEN-LAST:event_searchBtnActionPerformed
 
     private void searchTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextActionPerformed
-        List<String> data = service
-                .question(searchText.getText())
-                .invoke();
-        searchListModel.setData(data);
+        searchListModel.loadData( searchText.getText() );
     }//GEN-LAST:event_searchTextActionPerformed
 
     public static void main(String args[]) {
@@ -108,9 +97,6 @@ public class Gui extends javax.swing.JFrame {
             Gui gui = new Gui();
             gui.setLocationRelativeTo(null);
             gui.setVisible(true);
-            System.out.printf("Service spec version: %s\n", Climber.getSpec());
-            System.out.printf("Service version: %s\n",      gui.service.getVersion());
-
         });
     }
 
@@ -121,6 +107,5 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JTextField searchText;
     // End of variables declaration//GEN-END:variables
 
-    private final Climber         service;
     private final SearchListModel searchListModel;
 }
