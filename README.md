@@ -13,9 +13,9 @@ TODO
 
 - [X] JS client in *climber*
 - [ ] Java client in *basher*
-- [X] Hystrix in client application
+- [X] Hystrix in client application (added in climber client impl)
 - [ ] Lemming AMQP
-- [ ] Use "action" class for events in Swing sample app
+- [X] Use "action" class for events in Swing sample app
 
 
 Climber
