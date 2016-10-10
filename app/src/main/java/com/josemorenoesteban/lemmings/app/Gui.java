@@ -1,8 +1,12 @@
 package com.josemorenoesteban.lemmings.app;
 
+import java.awt.event.ActionEvent;
+import javax.swing.AbstractAction;
+
 public class Gui extends javax.swing.JFrame {
 
     public Gui() {
+        this.search          = new SearchAction();
         this.searchListModel = new SearchListModel();
         initComponents();
     }
@@ -19,22 +23,13 @@ public class Gui extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Microservice cliente application sample");
 
-        searchText.setToolTipText("");
-        searchText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchTextActionPerformed(evt);
-            }
-        });
+        searchText.setAction(search);
 
         jList1.setModel(searchListModel);
         jScrollPane1.setViewportView(jList1);
 
-        searchBtn.setText("Buscar");
-        searchBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchBtnActionPerformed(evt);
-            }
-        });
+        searchBtn.setAction(search);
+        searchBtn.setActionCommand("search");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -45,7 +40,7 @@ public class Gui extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(searchText, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
+                        .addComponent(searchText, javax.swing.GroupLayout.DEFAULT_SIZE, 686, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchBtn)))
                 .addContainerGap())
@@ -58,20 +53,12 @@ public class Gui extends javax.swing.JFrame {
                     .addComponent(searchText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchBtn))
                 .addGap(10, 10, 10)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
-        searchListModel.loadData( searchText.getText() );
-    }//GEN-LAST:event_searchBtnActionPerformed
-
-    private void searchTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextActionPerformed
-        searchListModel.loadData( searchText.getText() );
-    }//GEN-LAST:event_searchTextActionPerformed
 
     public static void main(String args[]) {
 
@@ -106,6 +93,17 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JButton searchBtn;
     private javax.swing.JTextField searchText;
     // End of variables declaration//GEN-END:variables
-
+    private final SearchAction    search;
     private final SearchListModel searchListModel;
+
+    private class SearchAction extends AbstractAction {
+        private SearchAction() {
+            super("Search");
+        }
+        
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            searchListModel.loadData( searchText.getText() );
+        }
+    }
 }
