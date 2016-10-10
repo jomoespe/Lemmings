@@ -26,5 +26,5 @@ public interface Climber {
     Climber question(final String question);
     Climber start(final int position);
     Climber size(final int size);
-    List<String> invoke();
+    List<String> get();
 }

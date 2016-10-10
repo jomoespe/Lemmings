@@ -17,7 +17,7 @@ public class SearchListModel extends AbstractListModel<String> implements ListMo
     }
     
     public void loadData(final String text) {
-        this.data = service.question(text).invoke();
+        this.data = service.question(text).get();
         fireContentsChanged(this, 0, this.data.size());
     }
     

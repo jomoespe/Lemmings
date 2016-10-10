@@ -3,6 +3,7 @@ package com.josemorenoesteban.lemmings.climber.service.port.rest;
 import static spark.Spark.after;
 import static spark.Spark.before;
 import static spark.Spark.get;
+import static spark.Spark.staticFiles;
 
 import com.josemorenoesteban.lemmings.climber.service.domain.Data;
 
@@ -35,6 +36,7 @@ public class RestPort {
     public RestPort(final Function<Query, Stream<Data>> getData) {
         this.doc    = new Documentation();
         this.health = new HealthCheck();
+        staticFiles.location("/web");
         before( (req, res) -> {} );
         after( (req, res) -> res.type(req.contentType()) );
         after( (req, res) -> res.header("Content-Encoding", "gzip") );
