@@ -21,9 +21,8 @@ public class Main {
             System.out.println("Stopping al HTTP routes");
             stop(); 
             System.out.println("HTTP routes stoped");
-        }, "my shutdown hook"));
-        
-        new RestPort( new Main().dataSupplier(DATA) );
+        }, "Climber shutdown hook"));
+        RestPort restPort = new RestPort( new Main().dataSupplier(DATA) );
     }
     
     private Function<Query, Stream<Data>> dataSupplier(final List<Data> dataList) {
