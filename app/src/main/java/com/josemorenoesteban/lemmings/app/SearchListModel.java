@@ -8,16 +8,16 @@ import javax.swing.AbstractListModel;
 import javax.swing.ListModel;
 
 public class SearchListModel extends AbstractListModel<String> implements ListModel<String>  {
-    private final Climber service;
+    private final Climber climber;
     private List<String>  data;
     
-    public SearchListModel() {
-        this.service = Climber.of();    // TODO here we can put a default fallback
+    public SearchListModel(final Climber climber) {
+        this.climber = climber;
         this.data    = Collections.emptyList();
     }
     
     public void loadData(final String text) {
-        this.data = service.question(text).invoke();
+        this.data = climber.question(text).fetch();
         fireContentsChanged(this, 0, this.data.size());
     }
     
