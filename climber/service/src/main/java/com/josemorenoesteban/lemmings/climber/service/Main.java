@@ -22,16 +22,17 @@ public class Main {
             stop(); 
             System.out.println("HTTP routes stoped");
         }, "Climber shutdown hook"));
+
         RestPort restPort = new RestPort( new Main().dataSupplier(DATA) );
     }
     
     private Function<Query, Stream<Data>> dataSupplier(final List<Data> dataList) {
-        return (Query q) -> {
+        return (Query query) -> {
             return dataList
-                .subList( q.start().orElse(DEFAULT_START), DATA.size() )
+                .subList( query.start().orElse(DEFAULT_START), DATA.size() )
                 .stream()
-                .filter( data -> data.name().startsWith(q.question().orElse(DEFAULT_QUESTION)) )
-                .limit( q.limit().orElse(DEFAULT_SIZE) );
+                .filter( data -> data.name().orElse("").toLowerCase().startsWith(query.question().orElse(DEFAULT_QUESTION)) )
+                .limit( query.limit().orElse(DEFAULT_SIZE) );
         };
     }
     

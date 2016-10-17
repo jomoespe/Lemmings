@@ -68,15 +68,16 @@ public class ClimberImpl implements Climber {
     }
 
     @Override
-    public List<String> invoke() {
-        final InvokeCommand command = new InvokeCommand();
+    public List<String> fetch() {
+        final Command command = new Command();
         return command.execute();
     }
     
-    private class InvokeCommand  extends HystrixCommand<List<String>> {
-        private InvokeCommand() {
-            super(asKey(HYSTRIX_GROUP_NAME));
+    private class Command  extends HystrixCommand<List<String>> {
+        private Command() {
+            super( asKey(HYSTRIX_GROUP_NAME) );
         }
+        
         @Override
         protected List<String> run() throws Exception {
             List<String> ret = new ArrayList<>();
