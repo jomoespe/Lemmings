@@ -6,6 +6,8 @@ import java.util.ServiceLoader;
 import java.util.function.Function;
 
 public interface Climber {
+    static final String SPEC_VERSION = "1.0.0-SNAPSHOT";
+    
     static Climber of() {
         Iterator<Climber> servicesIterator = ServiceLoader.load(Climber.class).iterator();
         if (servicesIterator.hasNext()) {
@@ -16,15 +18,15 @@ public interface Climber {
     }
 
     static Climber of(final Function<String, List<String>> fallback) {
-        return Climber.of().fallback(fallback);
+        return Climber.of().fallback( fallback );
     }
     
-    static String getSpec() { return "1.0.0-SNAPSHOT"; }
+    static String getSpec() { return SPEC_VERSION; }
     String  getVersion();
     Climber fallback(final Function<String, List<String>> fallback);
 
     Climber question(final String question);
     Climber start(final int position);
     Climber size(final int size);
-    List<String> get();
+    List<String> fetch();
 }

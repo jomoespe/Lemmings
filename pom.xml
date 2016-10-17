@@ -14,6 +14,8 @@
         <module>climber/client-impl</module>
         <module>climber/service</module>
 
+        <module>basher/client</module>
+        <module>basher/client-impl</module>
         <module>basher/service</module>
 
         <module>app</module>

@@ -2,16 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
    
-    <groupId>com.josemorenoesteban.lemmings</groupId>
-    <artifactId>app</artifactId>
+    <groupId>com.josemorenoesteban.lemmings.basher</groupId>
+    <artifactId>client-impl</artifactId>
     <version>1.0-SNAPSHOT</version>
     
-    <name>Lemmings GUI application</name>
+    <name>Basher client impl</name>
     <packaging>jar</packaging>
     <description>
-        Lemmings Swing based GUI application
+        Basher client impl
     </description>    
-    <!--url></url-->
+    <url>https://github.com/jomoespe/lemmings</url>
     <inceptionYear>2016</inceptionYear>
     <developers>
         <developer>
@@ -28,32 +28,39 @@
     
     <dependencies>
         <dependency>
-            <groupId>com.josemorenoesteban.lemmings.climber</groupId>
-            <artifactId>client</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
             <groupId>com.josemorenoesteban.lemmings.basher</groupId>
             <artifactId>client</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>javax.websocket</groupId>
+            <artifactId>javax.websocket-api</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.tyrus.ext</groupId>
+            <artifactId>tyrus-client-java8</artifactId>
+            <version>1.12</version>
+            <!--scope>runtime</scope-->
+        </dependency>        
         <dependency>
             <groupId>com.netflix.hystrix</groupId>
             <artifactId>hystrix-core</artifactId>
             <version>1.5.6</version>
         </dependency>
-    
+
         <dependency>
-            <groupId>com.josemorenoesteban.lemmings.climber</groupId>
-            <artifactId>client-impl</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.glassfish.tyrus</groupId>
+            <artifactId>tyrus-container-grizzly-client</artifactId>
+            <version>1.13</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>com.josemorenoesteban.lemmings.basher</groupId>
-            <artifactId>client-impl</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.21</version>
             <scope>runtime</scope>
         </dependency>
     </dependencies>
+
 </project>

@@ -10,8 +10,8 @@
     Basher.version = function() { return version; };
     
     Basher.startListening = function( consumer ) {
-      var connection = new WebSocket('ws://' + window.location.host + '/v1/basher', ['soap', 'json', 'protobuff']);
-      connection.onopen  = function()               { console.log("Websocket opened"); };
+      var connection = new WebSocket('ws://' + window.location.host + '/v1/basher');
+      connection.onopen    = function()             { console.log("Websocket opened"); };
       connection.onerror   = function(error)        { console.log("Websocket error: " + error); };
       connection.onmessage = function(messageEvent) { consumer(messageEvent.data); };
     };

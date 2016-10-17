@@ -27,11 +27,11 @@ public class RestPort {
     private final Documentation doc;
     private final HealthCheck   health;
     
-    private final Function<Request, Query>               requestToQuery  = request -> new Query(request);
-    private final Function<Stream<Data>, Stream<String>> getNames        = data    -> data.map( d -> d.name() );
-    private final Function<Stream<String>, String>       toText          = content -> content.map( s -> s + " " ).collect( StringBuilder::new, StringBuilder::append, StringBuilder::append ).toString();
-    private final Function<Stream<String>, JsonArray>    toJsonArray     = content -> content.collect( Json::createArrayBuilder, JsonArrayBuilder::add, JsonArrayBuilder::add ).build();
-    private final Function<Stream<String>, byte[]>       toProtobuff     = content -> "esto deberia ser un protobuff".getBytes();
+    private final Function<Request, Query>               requestToQuery = request -> new Query(request);
+    private final Function<Stream<Data>, Stream<String>> getNames       = data    -> data.map( d -> d.name().get() );
+    private final Function<Stream<String>, String>       asText         = content -> content.map( s -> s + " " ).collect( StringBuilder::new, StringBuilder::append, StringBuilder::append ).toString();
+    private final Function<Stream<String>, JsonArray>    asJson         = content -> content.collect( Json::createArrayBuilder, JsonArrayBuilder::add, JsonArrayBuilder::add ).build();
+    private final Function<Stream<String>, byte[]>       asProtobuff    = content -> "esto deberia ser un protobuff".getBytes();
     
     public RestPort(final Function<Query, Stream<Data>> getData) {
         this.doc    = new Documentation();
@@ -42,8 +42,8 @@ public class RestPort {
         after( (req, res) -> res.header("Content-Encoding", "gzip") );
         get( DOCUMENTATION_URI, JSON_MIME,      doc::swagger );
         get( HEALTH_CHECK_URI,  JSON_MIME,      health::check );
-        get( GET_DATA_URI,      TEXT_MIME,      (req, res) -> requestToQuery.andThen(getData).andThen(getNames).andThen(toText).apply(req) );
-        get( GET_DATA_URI,      JSON_MIME,      (req, res) -> requestToQuery.andThen(getData).andThen(getNames).andThen(toJsonArray).apply(req) );
-        get( GET_DATA_URI,      PROTOBUFF_MIME, (req, res) -> requestToQuery.andThen(getData).andThen(getNames).andThen(toProtobuff).apply(req) );
+        get( GET_DATA_URI,      TEXT_MIME,      (req, res) -> requestToQuery.andThen(getData).andThen(getNames).andThen(asText).apply(req) );
+        get( GET_DATA_URI,      JSON_MIME,      (req, res) -> requestToQuery.andThen(getData).andThen(getNames).andThen(asJson).apply(req) );
+        get( GET_DATA_URI,      PROTOBUFF_MIME, (req, res) -> requestToQuery.andThen(getData).andThen(getNames).andThen(asProtobuff).apply(req) );
     }
 }
